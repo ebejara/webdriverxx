@@ -1,4 +1,3 @@
-
 # Webdriver++
 
 A C++ client library for [Selenium Webdriver](http://www.seleniumhq.org/).
@@ -49,7 +48,7 @@ sudo emerge -av dev-util/cmake sys-devel/gcc sys-devel/make net-misc/curl
 ## Compile on Linux, FreeBSD, OpenBSD
 ```bash
 mkdir build && cd build && cmake ..
-sudo make
+sudo make install
 ```
 
 ## Compile on Windows
@@ -114,15 +113,20 @@ You need to download and run selenium-server-standalone.
 
 #### IMPORTANT NOTICE
 
-If you decide to use version selenium server version 4.0.0 and up (which is suggested), either compile with `-DSELENIUM_MAJOR=4`, or `#define SELENIUM_MAJOR 4` before including `webdriverxx.h`
-
-In some other versions you might need to initialize `WebDriver` objects with `http://localhost:4444/wd/hub` or any other url where your server is located suffixed with `/wd/hub`
+If you decide to use a selenium server version older than v4.0.0-alpha, either compile with `-DSELENIUM_MAJOR=3/2/1`, or `#define SELENIUM_MAJOR 3/2/1` before including `webdriverxx.h`
 
 #### Windows
 
 Download latest OpenJDK and unpack: https://openjdk.java.net/
 
-Official Selenium server can be seen here: https://selenium-release.storage.googleapis.com/index.html
+Official Selenium server can be seen here:
+- versions from 2.39 to 4.0.0-beta-4 https://selenium-release.storage.googleapis.com/index.html
+- all versions (scroll to the release that you want, click `Artifacts` and download `selenium-server-#.#.#.jar`) https://github.com/SeleniumHQ/selenium/releases
+
+Powershell
+```powershell
+Invoke-WebRequest -Uri https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.36.0/selenium-server-4.36.0.jar
+```
 
 Set the path enviroment variable to OpenJDK or move to the OpenJDK folder
 
@@ -147,13 +151,15 @@ sudo pacman -Syu jre-openjdk jre-openjdk-headless
 sudo emerge -av virtual/jre
 ```
 
-Official Selenium server can be seen here: https://selenium-release.storage.googleapis.com/index.html
+Official Selenium server can be seen here:
+- versions from 2.39 to 4.0.0-beta-4 https://selenium-release.storage.googleapis.com/index.html
+- all versions (scroll to the release that you want, click `Artifacts` and download `selenium-server-#.#.#.jar`) https://github.com/SeleniumHQ/selenium/releases
 
 ```bash
-wget https://selenium-release.storage.googleapis.com/4.0-beta-4/selenium-server-4.0.0-beta-4.jar
+wget https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.36.0/selenium-server-4.36.0.jar
 ```
 
-or download from AUR [here](https://aur.archlinux.org/packages/selenium-server-standalone/):
+or download from AUR (not recomended - outdated version v3.141.59-1) [here](https://aur.archlinux.org/packages/selenium-server-standalone/):
 
 ```bash
 sudo yay -S --aur aur/selenium-server-standalone
