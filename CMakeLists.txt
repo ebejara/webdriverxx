@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.14)
 project(webdriverxx)
 
 if(NOT MSVC OR NOT MSYS OR NOT MINGW)
@@ -20,8 +20,13 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 if(WIN32)
 	# curl
 	#add_subdirectory(${CMAKE_SOURCE_DIR}/src/thirdparty/curl)
+<<<<<<< HEAD
 	#include_directories(${CMAKE_SOURCE_DIR}/thirdparty/curl/include)
 	#link_directories(${CMAKE_SOURCE_DIR}/thirdparty/curl/lib)
+=======
+	include_directories(${CMAKE_SOURCE_DIR}/thirdparty/curl/include)
+	link_directories(${CMAKE_SOURCE_DIR}/thirdparty/curl/lib)
+>>>>>>> 918f5201284b77c324b7e2289a96dfbd3e152160
 	#add_subdirectory(${CMAKE_SOURCE_DIR}/test)
 elseif(UNIX OR APPLE)
 	find_package(CURL REQUIRED)
